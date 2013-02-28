@@ -1,0 +1,1 @@
+PS1="\u@\h:\W \[$EBLUE\]\$(vcprompt -f "[%n:%b%m%u]")\[$NO_COLOR\]$ "

@@ -1,0 +1,33 @@
+[submodule "dotfiles/vim/bundle/vim-colors-solarized"]
+	path = dotfiles/vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "dotfiles/vim/bundle/nerdtree"]
+	path = dotfiles/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "dotfiles/vim/bundle/vim-ack"]
+	path = dotfiles/vim/bundle/vim-ack
+	url = https://github.com/mileszs/ack.vim
+[submodule "dotfiles/vim/bundle/vim-snipmate"]
+	path = dotfiles/vim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "dotfiles/vim/bundle/vim-fuzzyfinder"]
+	path = dotfiles/vim/bundle/vim-fuzzyfinder
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "dotfiles/vim/bundle/vim-taglist"]
+	path = dotfiles/vim/bundle/vim-taglist
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "dotfiles/vim/bundle/vim-comments"]
+	path = dotfiles/vim/bundle/vim-comments
+	url = https://github.com/vim-scripts/comments.vim.git
+[submodule "dotfiles/vim/bundle/vim-addon-mw-utils"]
+	path = dotfiles/vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils
+[submodule "dotfiles/vim/bundle/vim-tlib"]
+	path = dotfiles/vim/bundle/vim-tlib
+	url = https://github.com/vim-scripts/tlib.git
+[submodule "dotfiles/vim/bundle/vim-snipmate-snippets"]
+	path = dotfiles/vim/bundle/vim-snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
+[submodule "dotfiles/vim/bundle/vim-L9"]
+	path = dotfiles/vim/bundle/vim-L9
+	url = https://github.com/vim-scripts/L9

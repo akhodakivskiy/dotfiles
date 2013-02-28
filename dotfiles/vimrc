@@ -1,0 +1,132 @@
+syntax on
+let mapleader=","
+set mouse=a
+set number
+if version >= 73
+    set undofile
+    set undodir=~/.vim/undo
+endif
+
+" from http://stackoverflow.com/questions/65076/how-to-setup-vim-properly-for-editing-python-files-py
+let $PATH = '~/bin:' . $PATH
+set incsearch 
+set ignorecase
+set smartcase
+set ruler
+set backspace=indent,eol,start
+set showcmd
+set expandtab           " enter spaces when tab is pressed
+set textwidth=120       " break lines when line length increases
+set tabstop=4           " use 4 spaces to represent tab
+set softtabstop=4
+set shiftwidth=4        " number of spaces to use for auto indent
+set autoindent          " copy indent from current line when starting a new line
+set nocp
+
+call pathogen#infect()
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+filetype off
+filetype plugin indent on
+filetype plugin on
+set laststatus=2
+" end
+
+" to highlight current line
+set cul
+
+let NERDTreeIgnore=['\.pyc$', '\.o$', '^moc_', '^ui_']
+
+" To seich between buffers:
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType java set omnifunc=javacomplete#Complete
+
+au BufRead,BufNewFile *.json set filetype=json
+au! Syntax json source ~/.vim/ftplugin/json.vim
+
+autocmd FileType java set tags+=$HOME/.vim/tags/android.ctags
+autocmd FileType python set tags+=$HOME/.vim/tags/python.ctags
+autocmd FileType cpp set tags+=$HOME/.vim/tags/qt4.tags
+autocmd FileType cpp set tags+=$HOME/.vim/tags/dcmtk.tags
+set tags+=./tags;/
+
+let g:snips_author = 'Anton Khodakivskiy'
+
+map <F11> :!ctags -R -f ./tags --exclude="\.svn" --sort=yes --c++-kinds=+pl --PHP-kinds=+cf --fields=+iaS --extra=+q .<CR>
+
+inoremap <Nul> <C-x><C-o>
+
+if !has("win32") && !has("win64")
+    set directory=~/.vim/swap
+end
+
+"OmniCppComplete 
+let OmniCpp_NamespaceSearch = 1 
+let OmniCpp_GlobalScopeSearch = 1 
+let OmniCpp_ShowAccess = 1 
+let OmniCpp_MayCompleteDot = 1 
+let OmniCpp_MayCompleteArrow = 1 
+let OmniCpp_MayCompleteScope = 1 
+let OmniCpp_DefaultNamespaces = [ "std", "_GLIBCXX_STD"] 
+
+map <leader>f :FufFile<CR>
+map <leader>b :FufBuffer<CR>
+
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+
+" Function to activate a virtualenv in the embedded interpreter for
+" omnicomplete and other things like that.
+function! LoadVirtualEnv(path)
+    let activate_this = a:path . "/bin/activate_this.py"
+    echo l:activate_this
+    if filereadable(l:activate_this)
+        python << EOF
+import vim
+activate_this = vim.eval('l:activate_this')
+execfile(activate_this, dict(__file__=activate_this))
+EOF
+    else
+        :echo 'wrong path'
+    endif
+endfunction
+
+" Load up a 'stable' virtualenv if one exists in ~/.virtualenv
+let defaultvirtualenv = $HOME . "/.virtualenvs/stable"
+
+" Only attempt to load this virtualenv if the defaultvirtualenv
+" actually exists, and we aren't running with a virtualenv active.
+if has("python")
+    if empty($VIRTUAL_ENV) && getftype(defaultvirtualenv) == "dir"
+        call LoadVirtualEnv(defaultvirtualenv)
+    endif
+endif
+
+colorscheme solarized
+set background=dark
+
+if has("gui_running")
+
+    set guioptions-=m
+    set guioptions-=T
+
+    if has("gui_macvim")
+        set guifont=Inconsolata:h14
+        set MMZoomBoth
+    elseif has("win32")
+        set guifont=Lucida_Console:h10
+        colorscheme blackboard
+    else
+        set guifont=Inconsolata
+    endif
+elseif has("unix")
+    set t_Co=16
+endif

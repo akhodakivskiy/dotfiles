@@ -42,12 +42,7 @@ let NERDTreeIgnore=['\.pyc$', '\.o$', '^moc_', '^ui_']
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType html,xhtml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
 au BufRead,BufNewFile *.json set filetype=json
 au! Syntax json source ~/.vim/ftplugin/json.vim

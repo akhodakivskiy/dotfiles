@@ -31,3 +31,9 @@
 [submodule "dotfiles/vim/bundle/vim-L9"]
 	path = dotfiles/vim/bundle/vim-L9
 	url = https://github.com/vim-scripts/L9
+[submodule "dotfiles/vim/bundle/vim-scala"]
+	path = dotfiles/vim/bundle/vim-scala
+	url = https://github.com/derekwyatt/vim-scala
+[submodule "dotfiles/vim/bundle/html-template-syntax"]
+	path = dotfiles/vim/bundle/html-template-syntax
+	url = https://github.com/pbrisbin/html-template-syntax.git

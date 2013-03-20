@@ -44,9 +44,6 @@ map <C-S-Tab> :bprevious<cr>
 
 autocmd FileType html,xhtml setlocal shiftwidth=2 softtabstop=2 tabstop=2
 
-au BufRead,BufNewFile *.json set filetype=json
-au! Syntax json source ~/.vim/ftplugin/json.vim
-
 autocmd FileType java set tags+=$HOME/.vim/tags/android.ctags
 autocmd FileType python set tags+=$HOME/.vim/tags/python.ctags
 autocmd FileType cpp set tags+=$HOME/.vim/tags/qt4.tags

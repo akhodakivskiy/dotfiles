@@ -43,3 +43,12 @@
 [submodule "dotfiles/vim/bundle/vim-json"]
 	path = dotfiles/vim/bundle/vim-json
 	url = https://github.com/leshill/vim-json
+[submodule "dotfiles/vim/bundle/clang_complete"]
+	path = dotfiles/vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "dotfiles/vim/bundle/vim-qml"]
+	path = dotfiles/vim/bundle/vim-qml
+	url = https://github.com/peterhoeg/vim-qml
+[submodule "dotfiles/vim/bundle/vim-objc"]
+	path = dotfiles/vim/bundle/vim-objc
+	url = https://github.com/b4winckler/vim-objc.git

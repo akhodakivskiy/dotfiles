@@ -25,9 +25,6 @@
 [submodule "dotfiles/vim/bundle/vim-tlib"]
 	path = dotfiles/vim/bundle/vim-tlib
 	url = https://github.com/vim-scripts/tlib.git
-[submodule "dotfiles/vim/bundle/vim-snipmate-snippets"]
-	path = dotfiles/vim/bundle/vim-snipmate-snippets
-	url = https://github.com/honza/snipmate-snippets.git
 [submodule "dotfiles/vim/bundle/vim-L9"]
 	path = dotfiles/vim/bundle/vim-L9
 	url = https://github.com/vim-scripts/L9

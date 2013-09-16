@@ -43,3 +43,21 @@
 [submodule "dotfiles/vim/bundle/vim-snippets"]
 	path = dotfiles/vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
+[submodule "dotfiles/vim/bundle/clang_complete"]
+	path = dotfiles/vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "dotfiles/vim/bundle/vim-qml"]
+	path = dotfiles/vim/bundle/vim-qml
+	url = https://github.com/peterhoeg/vim-qml
+[submodule "dotfiles/vim/bundle/vim-objc"]
+	path = dotfiles/vim/bundle/vim-objc
+	url = https://github.com/b4winckler/vim-objc.git
+[submodule "dotfiles/vim/bundle/vim-clojure-static"]
+	path = dotfiles/vim/bundle/vim-clojure-static
+	url = https://github.com/guns/vim-clojure-static.git
+[submodule "dotfiles/vim/bundle/vim-classpath"]
+	path = dotfiles/vim/bundle/vim-classpath
+	url = https://github.com/tpope/vim-classpath.git
+[submodule "dotfiles/vim/bundle/vim-fireplace"]
+	path = dotfiles/vim/bundle/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace.git

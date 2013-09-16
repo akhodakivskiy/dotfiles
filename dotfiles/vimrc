@@ -24,8 +24,10 @@ set autoindent          " copy indent from current line when starting a new line
 set nocp
 
 call pathogen#infect()
+
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType html,xhtml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
 
 filetype off
 filetype plugin indent on
@@ -42,17 +44,20 @@ let NERDTreeIgnore=['\.pyc$', '\.o$', '^moc_', '^ui_']
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
 
-autocmd FileType html,xhtml setlocal shiftwidth=2 softtabstop=2 tabstop=2
+" Avoid freezing on offending code
+let g:clang_user_options='|| exit 0'
+let g:clang_close_preview=1
 
-autocmd FileType java set tags+=$HOME/.vim/tags/android.ctags
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menuone,menu,longest,preview
+
+autocmd FileType java set tags+=$HOME/.vim/tags/dcm4che.ctags
+autocmd FileType scala set tags+=$HOME/.vim/tags/dcm4che.ctags
 autocmd FileType python set tags+=$HOME/.vim/tags/python.ctags
-autocmd FileType cpp set tags+=$HOME/.vim/tags/qt4.tags
-autocmd FileType cpp set tags+=$HOME/.vim/tags/dcmtk.tags
-set tags+=./tags;/
+"autocmd FileType cpp set tags+=$HOME/.vim/tags/qt.tags
+"autocmd FileType cpp set tags+=$HOME/.vim/tags/dcmtk.tags
 
 let g:snips_author = 'Anton Khodakivskiy'
-
-map <F11> :!ctags -R -f ./tags --exclude="\.svn" --sort=yes --c++-kinds=+pl --PHP-kinds=+cf --fields=+iaS --extra=+q .<CR>
 
 inoremap <Nul> <C-x><C-o>
 
@@ -60,47 +65,12 @@ if !has("win32") && !has("win64")
     set directory=~/.vim/swap
 end
 
-"OmniCppComplete 
-let OmniCpp_NamespaceSearch = 1 
-let OmniCpp_GlobalScopeSearch = 1 
-let OmniCpp_ShowAccess = 1 
-let OmniCpp_MayCompleteDot = 1 
-let OmniCpp_MayCompleteArrow = 1 
-let OmniCpp_MayCompleteScope = 1 
-let OmniCpp_DefaultNamespaces = [ "std", "_GLIBCXX_STD"] 
-
+" Fuzzy Finder
+let g:fuf_file_exclude = 'target'
+let g:fuf_coveragefile_exclude = 'target'
 map <leader>f :FufFile<CR>
+map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>
-
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-
-" Function to activate a virtualenv in the embedded interpreter for
-" omnicomplete and other things like that.
-function! LoadVirtualEnv(path)
-    let activate_this = a:path . "/bin/activate_this.py"
-    echo l:activate_this
-    if filereadable(l:activate_this)
-        python << EOF
-import vim
-activate_this = vim.eval('l:activate_this')
-execfile(activate_this, dict(__file__=activate_this))
-EOF
-    else
-        :echo 'wrong path'
-    endif
-endfunction
-
-" Load up a 'stable' virtualenv if one exists in ~/.virtualenv
-let defaultvirtualenv = $HOME . "/.virtualenvs/stable"
-
-" Only attempt to load this virtualenv if the defaultvirtualenv
-" actually exists, and we aren't running with a virtualenv active.
-if has("python")
-    if empty($VIRTUAL_ENV) && getftype(defaultvirtualenv) == "dir"
-        call LoadVirtualEnv(defaultvirtualenv)
-    endif
-endif
 
 colorscheme solarized
 set background=dark
@@ -112,7 +82,7 @@ if has("gui_running")
 
     if has("gui_macvim")
         set guifont=Inconsolata:h14
-        set MMZoomBoth
+        "set MMZoomBoth
     elseif has("win32")
         set guifont=Lucida_Console:h10
         colorscheme blackboard

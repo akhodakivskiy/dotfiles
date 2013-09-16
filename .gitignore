@@ -1,4 +1,5 @@
 vcprompt
 dotfiles/vim/undo
 dotfiles/vim/swap
+dotfiles/vim/tags
 dotfiles/vim/.netrwhist

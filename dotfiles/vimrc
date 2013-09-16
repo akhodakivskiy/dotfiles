@@ -65,6 +65,9 @@ if !has("win32") && !has("win64")
     set directory=~/.vim/swap
 end
 
+" Fuzzy Finder
+let g:fuf_file_exclude = 'target'
+let g:fuf_coveragefile_exclude = 'target'
 map <leader>f :FufFile<CR>
 map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>

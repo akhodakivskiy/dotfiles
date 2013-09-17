@@ -55,9 +55,3 @@
 [submodule "dotfiles/vim/bundle/vim-clojure-static"]
 	path = dotfiles/vim/bundle/vim-clojure-static
 	url = https://github.com/guns/vim-clojure-static.git
-[submodule "dotfiles/vim/bundle/vim-classpath"]
-	path = dotfiles/vim/bundle/vim-classpath
-	url = https://github.com/tpope/vim-classpath.git
-[submodule "dotfiles/vim/bundle/vim-fireplace"]
-	path = dotfiles/vim/bundle/vim-fireplace
-	url = https://github.com/tpope/vim-fireplace.git

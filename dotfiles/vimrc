@@ -1,69 +1,38 @@
-syntax on
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-sensible'
+Plugin 'bling/vim-airline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'scrooloose/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" ======================================
+
+" Indentation
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Leader, mouse, undo-redo, swap
 let mapleader=","
 set mouse=a
 set number
-if version >= 73
-    set undofile
-    set undodir=~/.vim/undo
-endif
-
-" from http://stackoverflow.com/questions/65076/how-to-setup-vim-properly-for-editing-python-files-py
-let $PATH = '~/bin:' . $PATH
-set incsearch 
-set ignorecase
-set smartcase
-set ruler
-set backspace=indent,eol,start
-set showcmd
-set expandtab           " enter spaces when tab is pressed
-set textwidth=120       " break lines when line length increases
-set tabstop=4           " use 4 spaces to represent tab
-set softtabstop=4
-set shiftwidth=4        " number of spaces to use for auto indent
-set autoindent          " copy indent from current line when starting a new line
-set nocp
-
-call pathogen#infect()
-
-au BufWritePost *.coffee silent make! | cwindow
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-autocmd FileType html,xhtml setlocal shiftwidth=2 softtabstop=2 tabstop=2 expandtab
-
-filetype off
-filetype plugin indent on
-filetype plugin on
-set laststatus=2
-" end
-
-" to highlight current line
-set cul
-
-let NERDTreeIgnore=['\.pyc$', '\.o$', '^moc_', '^ui_']
-
-" To seich between buffers:
-map <C-Tab> :bnext<cr>
-map <C-S-Tab> :bprevious<cr>
-
-" Avoid freezing on offending code
-let g:clang_user_options='|| exit 0'
-let g:clang_close_preview=1
-
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-
-autocmd FileType java set tags+=$HOME/.vim/tags/dcm4che.ctags
-autocmd FileType scala set tags+=$HOME/.vim/tags/dcm4che.ctags
-autocmd FileType python set tags+=$HOME/.vim/tags/python.ctags
-"autocmd FileType cpp set tags+=$HOME/.vim/tags/qt.tags
-"autocmd FileType cpp set tags+=$HOME/.vim/tags/dcmtk.tags
-
-let g:snips_author = 'Anton Khodakivskiy'
-
-inoremap <Nul> <C-x><C-o>
-
-if !has("win32") && !has("win64")
-    set directory=~/.vim/swap
-end
+set undofile
+set undodir=~/.vim/undo
+set directory=~/.vim/swap
 
 " Fuzzy Finder
 let g:fuf_file_exclude = 'target'
@@ -72,23 +41,12 @@ map <leader>f :FufFile<CR>
 map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>
 
-colorscheme solarized
+" Solarized
 set background=dark
+colorscheme solarized
 
-if has("gui_running")
-
-    set guioptions-=m
-    set guioptions-=T
-
-    if has("gui_macvim")
-        set guifont=Inconsolata:h14
-        "set MMZoomBoth
-    elseif has("win32")
-        set guifont=Lucida_Console:h10
-        colorscheme blackboard
-    else
-        set guifont=Inconsolata
-    endif
-elseif has("unix")
-    set t_Co=16
+if has("gui_macvim")
+    set guifont=Inconsolata:h14
+else
+    set guifont=Inconsolata
 endif

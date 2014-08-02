@@ -1,1 +1,0 @@
-/Users/anton/bin/colorgcc.pl

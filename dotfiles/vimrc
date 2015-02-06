@@ -67,6 +67,7 @@ colorscheme solarized
 
 if has("gui_macvim")
     set guifont=Inconsolata:h14
+    autocmd BufLeave,FocusLost * wall
 else
     set guifont=Inconsolata
 endif

@@ -1,6 +1,5 @@
-vcprompt
-dotfiles/vim/undo
-dotfiles/vim/swap
-dotfiles/vim/tags
-dotfiles/vim/.netrwhist
-dotfiles/vim/bundle
+vim/undo
+vim/swap
+vim/tags
+vim/.netrwhist
+vim/bundle

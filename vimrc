@@ -12,6 +12,7 @@ Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'rust-lang/rust.vim'
+Plugin 'phildawes/racer'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
@@ -25,9 +26,15 @@ filetype plugin indent on    " required
 
 " ======================================
 
+
 " Tailing space
 match ErrorMsg '\s\+$'
 command! TrimWhiteSpace %s/\s\+$//e
+
+" Rust's racer
+set hidden
+let g:racer_cmd = "/Users/anton/dev/rust/racer/target/release/racer"
+let $RUST_SRC_PATH = "/Users/anton/dev/rust/rust/src/"
 
 " Search
 set incsearch

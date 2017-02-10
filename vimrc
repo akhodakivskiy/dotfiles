@@ -69,8 +69,9 @@ autocmd BufWritePost *.coffee silent make!
 let coffee_make_options = '--bare'
 
 " Solarized
-set background=dark
+"
 colorscheme solarized
+set background=dark
 
 if has("gui_macvim")
     set guifont=Inconsolata:h14

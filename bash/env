@@ -3,4 +3,4 @@ export SVN_EDITOR=vim
 export PATH=~/bin:$PATH
 export HISTSIZE=
 export HISTFILESIZE=
-export GREP_OPTIONS='--color=auto'
+export HISTTIMEFORMAT="[%F %T] "

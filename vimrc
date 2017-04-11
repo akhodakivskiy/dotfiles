@@ -65,6 +65,9 @@ map <leader>f :FufFile<CR>
 map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>
 
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
+
 "vim-coffeescript
 autocmd BufWritePost *.coffee silent make!
 let coffee_make_options = '--bare'

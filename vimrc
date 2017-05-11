@@ -69,7 +69,6 @@ autocmd BufWritePost *.coffee silent make!
 let coffee_make_options = '--bare'
 
 " Solarized
-"
 colorscheme solarized
 set background=dark
 

@@ -59,14 +59,19 @@ set undodir=~/.vim/undo
 set directory=~/.vim/swap
 
 " Fuzzy Finder
-let g:fuf_file_exclude = 'target'
-let g:fuf_coveragefile_exclude = 'target'
+let g:fuf_file_exclude = '\v\~$'
+  \ . '|\.(class|pyc)$'
+  \ . '|(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
+  \ . '|(^|[/\\])penv[/\\]'
+  \ . '|(^|[/\\])target[/\\]'
+  \ . '|.*[/\\]$'
+let g:fuf_coveragefile_exclude = g:fuf_file_exclude
 map <leader>f :FufFile<CR>
 map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>
 
 " NERDTree
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', 'penv']
 
 "vim-coffeescript
 autocmd BufWritePost *.coffee silent make!

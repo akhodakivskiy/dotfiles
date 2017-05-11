@@ -11,9 +11,10 @@ Plugin 'tpope/vim-git'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
+"Plugin 'rust-lang/rust.vim'
 "Plugin 'phildawes/racer'
-Plugin 'kchmck/vim-coffee-script'
+"Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
@@ -63,6 +64,9 @@ let g:fuf_coveragefile_exclude = 'target'
 map <leader>f :FufFile<CR>
 map <leader>c :FufCoverageFile<CR>
 map <leader>b :FufBuffer<CR>
+
+" NERDTree
+let NERDTreeIgnore = ['\.pyc$']
 
 "vim-coffeescript
 autocmd BufWritePost *.coffee silent make!

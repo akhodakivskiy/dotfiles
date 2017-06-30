@@ -1,23 +1,18 @@
 #!/bin/bash
 
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-
-PROFILE_FILE=$1
-
-if [ -z "$PROFILE_FILE" ]; then
-    PROFILE_FILE="$HOME/.profile"
-fi
-
-echo "adding to ${PROFILE_FILE}"
-
-echo -e "\nsource ~/dotfiles/bashrc\n" >> "$PROFILE_FILE"
+ln -snf ~/dotfiles/vimrc ~/.vimrc
+ln -snf ~/dotfiles/vim ~/.vim
+ln -snf ~/dotfiles/tmux.conf ~/.tmux.conf
+ln -snf ~/dotfiles/tmux-linux.conf ~/.tmux-linux.conf
 
 # Vundle for vim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ] ; then
+  git clone https://github.com/gmarik/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+fi
 
 # TPM for tmux
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "$HOME/.tmux/plugins/tpm" ] ; then
+  git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+fi
 
 echo "done!"

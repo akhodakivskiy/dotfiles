@@ -11,13 +11,14 @@ Plugin 'tpope/vim-git'
 Plugin 'bling/vim-airline'
 Plugin 'mileszs/ack.vim'
 Plugin 'derekwyatt/vim-scala'
-Plugin 'fatih/vim-go'
+"Plugin 'fatih/vim-go'
 "Plugin 'rust-lang/rust.vim'
 "Plugin 'phildawes/racer'
 "Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+"Plugin 'lifepillar/vim-solarized8'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -78,8 +79,8 @@ autocmd BufWritePost *.coffee silent make!
 let coffee_make_options = '--bare'
 
 " Solarized
-colorscheme solarized
-set background=dark
+" colorscheme solarized8
+" set background=dark
 
 if has("gui_macvim")
     set guifont=Inconsolata:h14

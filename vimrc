@@ -1,42 +1,25 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-git'
-Plugin 'bling/vim-airline'
-Plugin 'mileszs/ack.vim'
-Plugin 'derekwyatt/vim-scala'
-"Plugin 'fatih/vim-go'
-"Plugin 'rust-lang/rust.vim'
-"Plugin 'phildawes/racer'
-"Plugin 'kchmck/vim-coffee-script'
-Plugin 'othree/html5.vim'
-Plugin 'scrooloose/nerdtree'
-"Plugin 'altercation/vim-colors-solarized'
-"Plugin 'lifepillar/vim-solarized8'
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'normen/vim-pio'
+Plug 'mileszs/ack.vim'
 
-call vundle#end()            " required
+call plug#end()
+
 filetype plugin indent on    " required
 
 " ======================================
 
-
 " Tailing space
 match ErrorMsg '\s\+$'
 command! TrimWhiteSpace %s/\s\+$//e
-
-" Rust's racer
-set hidden
-let g:racer_cmd = $HOME."/dev/rust/racer/target/release/racer"
-let $RUST_SRC_PATH = $HOME."/dev/rust/rust/src/"
 
 " Search
 set incsearch
@@ -46,8 +29,8 @@ set smartcase
 " Indentation
 set cindent
 set smartindent
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 
@@ -59,32 +42,5 @@ set undofile
 set undodir=~/.vim/undo
 set directory=~/.vim/swap
 
-" Fuzzy Finder
-let g:fuf_file_exclude = '\v\~$'
-  \ . '|\.(class|pyc)$'
-  \ . '|(^|[/\\])\.(hg|git|bzr|svn)($|[/\\])'
-  \ . '|(^|[/\\])penv[/\\]'
-  \ . '|(^|[/\\])target[/\\]'
-  \ . '|.*[/\\]$'
-let g:fuf_coveragefile_exclude = g:fuf_file_exclude
-map <leader>f :FufFile<CR>
-map <leader>c :FufCoverageFile<CR>
-map <leader>b :FufBuffer<CR>
-
-" NERDTree
-let NERDTreeIgnore = ['\.pyc$', 'penv']
-
-"vim-coffeescript
-autocmd BufWritePost *.coffee silent make!
-let coffee_make_options = '--bare'
-
-" Solarized
-" colorscheme solarized8
-" set background=dark
-
-if has("gui_macvim")
-    set guifont=Inconsolata:h14
-    autocmd BufLeave,FocusLost * wall
-else
-    set guifont=Inconsolata
-endif
+" fzf
+nnoremap <leader>c :Files<CR>

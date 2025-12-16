@@ -6,10 +6,9 @@ call plug#begin()
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'normen/vim-pio'
-Plug 'mileszs/ack.vim'
+Plug 'mhinz/vim-grepper'
 
 call plug#end()
 
@@ -44,3 +43,5 @@ set directory=~/.vim/swap
 
 " fzf
 nnoremap <leader>c :Files<CR>
+nnoremap <leader>g :Grepper<CR>
+nnoremap \ :NERDTreeToggle<CR>

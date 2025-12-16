@@ -3,4 +3,5 @@ vim/swap
 vim/tags
 vim/vim
 vim/.netrwhist
-vim/bundle
+vim/autoload/plug.vim
+vim/plugged

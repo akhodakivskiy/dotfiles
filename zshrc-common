@@ -1,5 +1,7 @@
 export EDITOR='vim'
 
+export TERMINAL=alacritty
+
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
@@ -7,3 +9,8 @@ setopt HIST_IGNORE_DUPS
 
 #rust cargo
 [[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+#miniforge
+[[ -r "$HOME/miniforge3/etc/profile.d/conda.sh" ]] && source "$HOME/miniforge3/etc/profile.d/conda.sh"
+
+get_conda() { conda activate "${1:-base}"; }

@@ -1,0 +1,37 @@
+[theme]
+theme = "native"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "cpu"
+
+[[block]]
+block = "memory"
+
+[[block]]
+block = "disk_space"
+path = "/"
+format = " $icon $available "
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = " $icon {$signal_strength $ssid |$ip} "
+
+[[block]]
+block = "battery"
+driver = "upower"
+device = "BAT0" # Use "DisplayDevice" for UPower, or a specific device name
+# e.g. device = "BAT0" for sysfs
+interval = 10
+format = "$icon $power $percentage"
+charging_format = "$icon $power $percentage"
+full_format = "$icon $percentage"
+# You can also use other placeholders like {time_remaining}
+
+[[block]]
+block = "time"
+format = " $timestamp.datetime(f:'%a %Y-%m-%d %H:%M') "
+interval = 5

@@ -13,6 +13,9 @@ ln -snf ~/dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
 
 ln -snf ~/dotfiles/zshrc-common ~/.zshrc-common
 
+ln -snf ~/dotfiles/i3/i3.config ~/.config/i3/config
+ln -snf ~/dotfiles/i3/i3status-rust.toml ~/.config/i3/i3status-rust.toml
+
 # vim-plug
 echo "installing vim-plug"
 if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then

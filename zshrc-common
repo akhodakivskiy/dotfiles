@@ -1,0 +1,9 @@
+export EDITOR='vim'
+
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+setopt HIST_IGNORE_DUPS
+
+#rust cargo
+[[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

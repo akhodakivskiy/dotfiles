@@ -7,6 +7,7 @@
 echo "*1 installing vim config"
 ln -snf ~/dotfiles/vimrc ~/.vimrc
 ln -snf ~/dotfiles/vim ~/.vim
+ln -snf ~/dotfiles/alacritty.toml ~/.alacritty.toml
 
 # vim-plug
 echo "installing vim-plug"

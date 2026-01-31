@@ -49,6 +49,8 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+bindsym $mod+Shift+slash exec --no-startup-id ~/.config/i3/scripts/i3keys-rofi
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 

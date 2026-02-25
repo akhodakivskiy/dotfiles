@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/i3/config"
+
+# Show both bindsym and bindcode lines, strip comments, make it readable.
+# If you prefer to only show your own binds, keep as-is.
+awk '
+  /^[ \t]*#/ { next }                         # skip full-line comments
+  /^[ \t]*(bindsym|bindcode)[ \t]+/ {
+    line=$0
+    sub(/^[ \t]*(bindsym|bindcode)[ \t]+/, "", line)
+
+    # Remove inline comments (simple heuristic)
+    sub(/[ \t]+#.*$/, "", line)
+
+    # Pretty: replace exec --no-startup-id etc. a bit
+    gsub(/--no-startup-id[ \t]+/, "", line)
+    print line
+  }
+' "$CONFIG" | rofi -dmenu -i -p "i3 keys" -no-custom

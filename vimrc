@@ -46,4 +46,4 @@ nnoremap <leader>c :Files<CR>
 nnoremap <leader>g :Grepper<CR>
 nnoremap \ :NERDTreeToggle<CR>
 
-set clipboard=unnamedplus
+" set clipboard=unnamedplus

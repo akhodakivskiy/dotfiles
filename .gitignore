@@ -6,3 +6,4 @@ vim/.netrwhist
 vim/autoload/plug.vim
 vim/plugged
 nvim/lazy-lock.json
+*.DS_Store

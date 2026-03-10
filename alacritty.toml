@@ -1,12 +1,12 @@
+[general]
+import = ["~/.config/alacritty/font.toml"]
+
 [terminal]
 [terminal.shell]
 program = "/bin/zsh"
 
 [env]
 TERM = "xterm-256color"
-
-[font]
-size = 11.0
 
 [font.normal]
 family = "0xProto Nerd Font"

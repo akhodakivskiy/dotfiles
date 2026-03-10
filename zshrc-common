@@ -2,6 +2,8 @@ export EDITOR='vim'
 
 export TERMINAL=alacritty
 
+export PATH="$PATH:$HOME/bin"
+
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE

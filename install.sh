@@ -1,25 +1,31 @@
 #!/bin/bash
 
-# oh-my-zsh
+mkdir -p "$HOME/bin"
+
+# ------------- alacritty font --------------
+
+touch "$HOME/.config/alacritty/font.toml"
 
 # ------------- vim --------------
 
+PWD=$(pwd)
+
 echo "*1 installing vim config"
-ln -snf ~/dotfiles/vimrc ~/.vimrc
-ln -snf ~/dotfiles/vim ~/.vim
+ln -snf "$PWD/vimrc" ~/.vimrc
+ln -snf "$PWD/vim" ~/.vim
 
 mkdir -p ~/.config/alacritty
-ln -snf ~/dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
+ln -snf "$PWD/alacritty.toml" ~/.config/alacritty/alacritty.toml
 
-ln -snf ~/dotfiles/zshrc-common ~/.zshrc-common
+ln -snf "$PWD/zshrc-common" ~/.zshrc-common
 
-ln -snf ~/dotfiles/i3 ~/.config/i3
+ln -snf "$PWD/i3" ~/.config/i3
 
 # vim-plug
 echo "installing vim-plug"
 if [ ! -d "$HOME/.vim/autoload/plug.vim" ]; then
-  mkdir -p ~/.vim/autoload/
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  mkdir -p "$HOME/.vim/autoload"
+  curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 else
   echo "WARNING: ~/.vim/autoload/plug.vim already exists"
 fi
@@ -32,7 +38,7 @@ vim +'PlugInstall --sync' +qa
 #
 echo "*2 installing neovim config"
 if [ ! -d "$HOME/.config/nvim" ]; then
-  ln -snf ~/dotfiles/nvim ~/.config/nvim
+  ln -snf "$PWD/nvim" ~/.config/nvim
 else
   echo "WARNING: ~/.config/nvim already exists"
 fi
@@ -44,7 +50,7 @@ nvim --headless "+Lazy! sync" +qa
 #
 echo "*3 installing tmux config"
 if [ ! -f "$HOME/.tmux.conf" ]; then
-  ln -snf ~/dotfiles/tmux.conf ~/.tmux.conf
+  ln -snf "$PWD/tmux.conf" ~/.tmux.conf
 else
   echo "WARNING: ~/.tmux.conf already exists"
 fi

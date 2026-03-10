@@ -21,6 +21,11 @@ device = "wlan0"
 format = " $icon {$signal_strength $ssid |$ip} "
 
 [[block]]
+block = "net"
+interval = 1
+format = " $icon ↓$speed_down.eng(prefix:K) $graph_down ↑$speed_up.eng(prefix:K) $graph_up "
+
+[[block]]
 block = "battery"
 driver = "upower"
 device = "BAT0" # Use "DisplayDevice" for UPower, or a specific device name

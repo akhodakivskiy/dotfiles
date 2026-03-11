@@ -5,6 +5,11 @@ theme = "native"
 icons = "material-nf"
 
 [[block]]
+block = "keyboard_layout"
+driver = "setxkbmap"
+format = " $layout "
+
+[[block]]
 block = "cpu"
 
 [[block]]

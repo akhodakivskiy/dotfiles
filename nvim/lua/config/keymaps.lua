@@ -13,5 +13,3 @@ wk.add({
     desc = "Explorer Snacks (cwd)",
   },
 })
-
-wk.add({ "go", ":ClangdSwitchSourceHeader<CR>", desc = "Switch Source/Header" })

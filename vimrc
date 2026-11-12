@@ -1,18 +1,13 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 call plug#begin()
 
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-grepper'
 
-call plug#end()
-
-filetype plugin indent on    " required
+call plug#end() " also runs: filetype plugin indent on, syntax enable
 
 " ======================================
 
@@ -22,12 +17,14 @@ command! TrimWhiteSpace %s/\s\+$//e
 
 " Search
 set incsearch
+set hlsearch
 set ignorecase
 set smartcase
+" Esc Esc clears search highlight
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " Indentation
-set cindent
-set smartindent
+set autoindent
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -46,4 +43,7 @@ nnoremap <leader>c :Files<CR>
 nnoremap <leader>g :Grepper<CR>
 nnoremap \ :NERDTreeToggle<CR>
 
-" set clipboard=unnamedplus
+" System clipboard for yank/paste: * on macOS, + on Linux (needs +clipboard)
+if has('clipboard')
+  set clipboard^=unnamed,unnamedplus
+endif

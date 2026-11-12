@@ -72,7 +72,7 @@ if have vim; then
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
   info "installing vim plugins"
-  vim -es -u "$HOME/.vimrc" -i NONE +'PlugInstall --sync' +qa || warn "vim plugin install failed"
+  vim -N -es -u "$HOME/.vimrc" -i NONE +'PlugInstall --sync' +qa || warn "vim plugin install failed"
 fi
 
 # ------------- neovim --------------

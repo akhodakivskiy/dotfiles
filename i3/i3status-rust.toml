@@ -22,7 +22,6 @@ format = " $icon $available "
 
 [[block]]
 block = "net"
-device = "wlan0"
 format = " $icon {$signal_strength $ssid |$ip} "
 
 [[block]]
@@ -33,8 +32,7 @@ format = " $icon ↓$speed_down.eng(prefix:K) $graph_down ↑$speed_up.eng(prefi
 [[block]]
 block = "battery"
 driver = "upower"
-device = "BAT0" # Use "DisplayDevice" for UPower, or a specific device name
-# e.g. device = "BAT0" for sysfs
+device = "DisplayDevice" # UPower's combined battery; no per-machine name
 interval = 10
 format = "$icon $power $percentage"
 charging_format = "$icon $power $percentage"

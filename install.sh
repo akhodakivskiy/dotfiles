@@ -56,6 +56,8 @@ link nvim "$CONFIG/nvim"
 link tmux.conf "$HOME/.tmux.conf"
 link kitty "$CONFIG/kitty"
 link zshrc-common "$HOME/.zshrc-common"
+link gitconfig "$HOME/.gitconfig"
+link git/ignore "$CONFIG/git/ignore"
 
 case "$OS" in
   Linux) link i3 "$CONFIG/i3" ;;

@@ -1,0 +1,15 @@
+[pull]
+	rebase = false
+[user]
+	name = Anton Khodakivskiy
+	email = akhodakivskiy@gmail.com
+[color]
+	ui = true
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+
+# Machine-local overrides (work email, credential helper, ...). Optional.
+[include]
+	path = ~/.gitconfig-local

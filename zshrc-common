@@ -1,8 +1,14 @@
+# Shared zsh config for all machines. ~/.zshrc stays machine-local and sources
+# this file just BEFORE oh-my-zsh.sh (install.sh inserts the line).
+
 export EDITOR='vim'
 
-export TERMINAL=alacritty
+export TERMINAL=kitty
 
-export PATH="$PATH:$HOME/bin"
+# User bin dirs first, duplicates dropped. Machine-specific entries go in ~/.zshrc.
+typeset -U path
+path=("$HOME/.cargo/bin" "$HOME/.local/bin" "$HOME/bin" $path)
+export PATH
 
 HISTFILE=~/.zsh_history
 HISTSIZE=999999999
@@ -12,7 +18,21 @@ setopt HIST_IGNORE_DUPS
 #rust cargo
 [[ -r "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
-#miniforge
-[[ -r "$HOME/miniforge3/etc/profile.d/conda.sh" ]] && source "$HOME/miniforge3/etc/profile.d/conda.sh"
+# conda (miniforge or miniconda): define the `conda` function only.
+# No env is activated; run `conda activate [env]` or `get_conda [env]` when needed.
+# Don't run `conda init` -- it adds a slow block that can auto-activate base.
+for _conda in "$HOME/miniforge3" "$HOME/miniconda3"; do
+  if [[ -r "$_conda/etc/profile.d/conda.sh" ]]; then
+    source "$_conda/etc/profile.d/conda.sh"
+    break
+  fi
+done
+unset _conda
 
 get_conda() { conda activate "${1:-base}"; }
+
+# oh-my-zsh plugins wanted on every machine (the two external ones are cloned
+# by install.sh). This file is sourced before oh-my-zsh.sh, which reads the
+# list. Add machine-only plugins to plugins=(...) in ~/.zshrc as usual.
+typeset -U plugins
+plugins+=(zsh-autosuggestions zsh-syntax-highlighting)

@@ -7,3 +7,5 @@ vim/autoload/plug.vim
 vim/plugged
 nvim/lazy-lock.json
 *.DS_Store
+kitty/local.conf
+kitty/*.bak
